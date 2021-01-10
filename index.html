@@ -1,0 +1,182 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>            
+  <title>Classroom Update</title>
+</head>
+<body class="yellow lighten-1">
+
+  <!-- NAVBAR -->
+  <nav class="z-depth-0 black " style="
+    height: 100px;">
+    <div class="nav-wrapper container" style="padding-top: 10;">
+      <a href="#" class="brand-logo">ClassroomUpdates
+        <!-- <img src="img/logo.svg" style="width: 180px; margin-top: 10px;"> -->
+      </a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li class="logged-in" style="display: none">
+            <a href="#" class="white-text modal-trigger" style="font-size: 25;" data-target="modal-account">Account</a>
+          </li>
+          <li class="logged-in" style="display: none">
+            <a href="#" class="grey-text" style="font-size: 25;" id="logout">Logout</a>
+          </li>
+          <li class="logged-in" style="display: none">
+            <a href="#" class="grey-text modal-trigger" style="font-size: 25;"  data-target="modal-create">Create Update</a>
+          </li>
+          <li class="logged-out" style="display: none">
+            <a href="#" class="grey-text modal-trigger" style="font-size: 25;"  data-target="modal-login">Login</a>
+          </li>
+          <li class="logged-out" style="display: none">
+            <a href="#" class="grey-text modal-trigger" style="font-size: 25;"  data-target="modal-signup">Sign up</a>
+          </li>
+        <!-- </span> -->
+      </ul>
+    </div>
+  </nav>
+
+  <ul class="sidenav" id="mobile-demo">
+    <li class="logged-in" style="display: none">
+      <a href="#" class="grey-text modal-trigger" data-target="modal-account">Account</a>
+    </li>
+    <li class="logged-in" style="display: none">
+      <a href="#" class="grey-text" id="logout">Logout</a>
+    </li>
+    <li class="logged-in" style="display: none">
+      <a href="#" class="grey-text modal-trigger" data-target="modal-create">Create Update</a>
+    </li>
+    <li class="logged-out" style="display: none">
+      <a href="#" class="grey-text modal-trigger" data-target="modal-login">Login</a>
+    </li>
+    <li class="logged-out" style="display: none">
+      <a href="#" class="grey-text modal-trigger" data-target="modal-signup">Sign up</a>
+    </li>
+  </ul>
+
+  <!-- SIGN UP MODAL -->
+  <div id="modal-signup" class="modal">
+    <div class="modal-content">
+      <h4>Sign up</h4><br />
+      <form id="signup-form">
+        <div class="input-field">
+          <input type="email" id="signup-email" required />
+          <label for="signup-email">Email address</label>
+        </div>
+        <div class="input-field">
+          <input type="password" id="signup-password" required />
+          <label for="signup-password">Choose password</label>
+        </div>
+        <div class="input-field">
+          <input type="text" id="signup-bio" required />
+          <label for="signup-bio">Add Bio</label>
+        </div>
+        <button class="btn black z-depth-0">Sign up</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- LOGIN MODAL -->
+  <div id="modal-login" class="modal">
+    <div class="modal-content">
+      <h4>Login</h4><br />
+      <form id="login-form">
+        <div class="input-field">
+          <input type="email" id="login-email" required />
+          <label for="login-email">Email address</label>
+        </div>
+        <div class="input-field">
+          <input type="password" id="login-password" required />
+          <label for="login-password">Your password</label>
+        </div>
+        <button class="btn black  z-depth-0">Login</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ACCOUNT MODAL -->
+  <div id="modal-account" class="modal">
+    <div class="modal-content center-align">
+      <h4>Account details</h4><br />
+      <div class="account-details"></div>
+    </div>
+  </div>
+
+
+  <!-- CREATE GUIDE MODAL -->
+  <div id="modal-create" class="modal">
+    <div class="modal-content">
+      <h4>Create Update</h4><br />
+      <form id="create-form">
+        <div class="input-field">
+          <input type="text" id="title" required>
+          <label for="title">Title</label>
+        </div>
+        <div class="input-field">
+          <textarea id="content" class="materialize-textarea" required></textarea>
+          <label for="content">Update content</label>
+        </div>
+        <button class="btn black darken-2 z-depth-0">Create</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- GUIDE LIST -->
+  <div class="container" style="margin-top: 40px;">
+
+    <ul class="collapsible z-depth-0 updates">
+
+      <!-- <li>
+        <div class="collapsible-header grey lighten-4">Guide title</div>
+        <div class="collapsible-body white">Lorem ipsum dolor sit amet.</div>
+      </li>
+      <li>
+        <div class="collapsible-header grey lighten-4">Guide title</div>
+        <div class="collapsible-body white"><span>Lorem ipsum dolor sit amet.</span></div>
+      </li>
+      <li>
+        <div class="collapsible-header grey lighten-4">Guide title</div>
+        <div class="collapsible-body white"><span>Lorem ipsum dolor sit amet.</span></div>
+      </li>
+      // <div style="position:absolute; right:auto">
+    // <img src="img/delete.png" style="width:40px; height:50px; position:relative; right:auto">
+    // </div>
+      <li>
+        <div class="collapsible-header grey lighten-4">Guide title</div>
+        <div class="collapsible-body white"><span>Lorem ipsum dolor sit amet.</span></div>
+      </li> -->
+    </ul>
+  </div>
+
+<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-firestore.js"></script>
+
+  <script>
+  var config = {
+    apiKey: "AIzaSyC-zbHRJT8riuiM7DrFieOHqFswaTMf3Ro",
+    authDomain: "classroom-update.firebaseapp.com",
+    projectId: "classroom-update",
+    appId: "1:296762817638:web:7039acdfdf45d156a341a7",
+    measurementId: "G-EYFFL9VY49"
+  };
+    firebase.initializeApp(config);
+    
+    // make auth and firestore references
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+
+    //update firestore settings so not to get error in console
+    db.settings({timestampsInSnapshots: true});   
+  </script> 
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="scripts/auth.js"></script>
+  <script src="scripts/index.js"></script>
+</body>
+</html>
