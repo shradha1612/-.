@@ -3,7 +3,7 @@
 -It is similar to to-do app
 -Build this project for learning firebase Authentication service.
 
-###Live Preview
+# Live Preview
 https://classroom-update.web.app/
 
 -This repo is not through firebase-deployment.
